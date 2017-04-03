@@ -24,3 +24,23 @@ return gulp
 
 
 ```
+
+### Installing GULP.js and Bower on MAC
+Use the following command to install GULP.js and Bower on your MAC
+
+``` 
+npm install -g gulp 
+npm install -g bower 
+```
+
+To verify whether gulp and bower has been installed, just use the following commands
+```
+gulp -v
+bower -v 
+```
+
+To check what packages we have installed using npm, use the following command
+```
+npm list -g --depth=0
+```
+

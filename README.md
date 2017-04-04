@@ -125,4 +125,78 @@ function log(msg){
 Note: You can use util.colors to display the message on console in different colors.
 
 
+### CSS Compilation
+
+#### Using GULP-LESS
+
+Gulp-less is used for compiling less files into css files.
+
+Use the following command to install gulp-less plugin:
+
+`npm install gulp-less --save-dev` 
+
+To include the plugin into your gulpfile.js, use the following code:
+
+`var gulpless = require('gulp-less');`
+
+
+#### Using GULP-AUTOPREFIXER
+Gulp-autoprefixer is very useful for adding the prefixes to your css code, so that it could be run in different browsers.
+
+Use the following command to install gulp-autoprefixer plugin:
+
+`npm install gulp-autoprefixer --save-dev`
+
+To include the plugin into your gulpfile.js, use the following code:
+
+`var gulpprefixer = require('gulp-autoprefixer');`
+
+
+#### Example of using gulp-less and gulp-autoprefixer
+
+The following example get a less file from a folder, saves it to destination and also add prefixes for different browsers:
+
+```
+gulp.task('mycsstask',function(){
+
+    
+    log("### Doing CSS compilation ###");
+    return gulp.src('./source/mylessfile.less')
+    .pipe(gulpless())
+    .pipe(gulpprefixer())
+    .pipe(gulp.dest('./destination/'));
+
+
+});
+
+```
+Run the above gulp task using the following command:
+
+`gulp mycsstask`
+
+The above code will compile the less file into css file and also adds vendor prefixes.
+
+#### Using watch API of Gulp.js
+
+Watch API for gulp.js is very useful for checking changes in your code and performing your gulp task, when a change is made.
+
+Example:
+
+```
+gulp.task('watch-my-less-files',function(){
+
+
+gulp.watch(['./my-source-code/less/myless.less'],['mycsstask']);
+
+
+});
+
+```
+
+When you run the above task, gulp will start watching for changes in your code. If any change occur in your code, then gulp will run __mycsstask__
+
+
+
+
+
 

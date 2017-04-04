@@ -124,6 +124,7 @@ function log(msg){
 
 Note: You can use util.colors to display the message on console in different colors.
 
+***
 
 ### CSS Compilation
 
@@ -196,7 +197,7 @@ gulp.watch(['./my-source-code/less/myless.less'],['mycsstask']);
 When you run the above task, gulp will start watching for changes in your code. If any change occur in your code, then gulp will run __mycsstask__
 
 
-
+***
 
 
 

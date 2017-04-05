@@ -199,5 +199,60 @@ When you run the above task, gulp will start watching for changes in your code. 
 
 ***
 
+### Adding javascript and css files references to HTML files automatically
+
+One of the useful package which we can use to automatically add javascript and css references from bower configuration file  to our html files is __wiredep__ 
+
+Install wiredep using the following command :
+
+`npm install wiredep --save-dev`
+
+You can include this package into your gulpfile.js as follow:
+
+`var wiredep = require('wiredep').stream;`
+
+
+Example :
+
+```
+// name of gulp task is go-add-bower-references
+
+gulp.task('go-add-bower-references',function(){
+
+//basic configuration for wiredep
+
+var wiredep_config = {
+directory:'./bower_components/',
+bowerJson:require('./bower.json')
+};
+
+return gulp.src('./my-source-code/index.html')// your index.html file 
+.pipe(wiredep(wiredep_config)) // 
+.pipe(gulp.dest(./my-source-code/dest/));// save it to destination
+
+});
+
+```
+
+Before running the command, remove all your hard coded bower references from your html file and add the following code where you want to add your css and javascript references:
+
+```
+<!-- bower:css -->
+
+<!-- endbower -->
+
+
+<!-- bower:js -->
+
+<!-- endbower -->
+```
+
+
+Now Run the above task using following command:
+
+`gulp go-add-bower-references`
+
+You will see that wiredep automatically adds your all css and javascript references to your html file.
+
 
 

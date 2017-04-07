@@ -254,5 +254,53 @@ Now Run the above task using following command:
 
 You will see that wiredep automatically adds your all css and javascript references to your html file.
 
+### BrowserSync
+
+BrowserSync has built a cool npm package, which we can use into our projects. It enable us to load the browser instantly if any change occur in our code. It watches our files and if any change happen in our file, it loads the browser. 
+
+Install Browser Sync using following command:
+
+`npm install browser-sync --save-dev`
+
+Include browser-sync into your code as follows:
+
+`var browserSync = require('browser-sync').create();`
+
+Below is the very simple example, which reloads the html file whenever the css file change:
+
+```
+gulp.task('run-browser-sync',function(){
+
+  
+    var browserSyncConfig = {
+    
+        proxy:"localhost:8080/index.html",
+        files:['./mycssfile.css'],
+        notify:true,// a small pop-over notifications in the browser
+        reloadDelay:0 
+    
+    };
+    
+
+    browserSync.init(browserSyncConfig);
+    
+    
+});
+
+
+```
+
+Run the above task using following command:
+
+`gulp run-browser-sync`
+
+
+
+
+
+
+
+
+
 
 

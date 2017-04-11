@@ -295,6 +295,59 @@ Run the above task using following command:
 `gulp run-browser-sync`
 
 
+***
+
+### GULP USEREF
+GULP useref is a great plugin, if you want to concatenate your files. For example, you can concatenate your 10's of javascript files into just one file.
+
+Use the following command to install Gulp-useref:
+
+`npm install gulp-useref --save-dev`
+
+Include gulp-useref into your javascript code as follows:
+
+`var useref = require('gulp-useref');`
+
+A very basic example has been shown below:
+```
+gulp.task('combine-my-files',function(){
+
+    log("### Combining your files ###");
+    
+    return gulp.src('./index.html')
+           .pipe(useref()) // process the index.html, combines files here
+           .pipe(gulp.dest('./build/')); // put the index.html into build folder
+
+
+});
+```
+Run the above task using the following command:
+
+`gulp combine-my-files`
+
+The sample code in the index.html is shown below:
+```
+<!-- build:css ./css/combinedcss.css -->    
+<link rel="stylesheet" type="text/css" href="my-source-code/one.css">   
+<link rel="stylesheet" type="text/css" href="my-source-code/two.css">   
+<!-- endbuild -->
+
+<!-- build:js ./scripts/combinedjs.js -->    
+    
+<script src="my-source-code/one.js" type="text/javascript"></script>    
+<script src="my-source-code/two.js" type="text/javascript"></script>    
+<!-- endbuild -->
+
+```
+
+The gulp-useref will combine files which you mentioned in the build tag. You have to specify type of files inside the build tag(example: js or css) and also the location, where you will save your combined file.
+
+
+
+});
+
+
+
 
 
 

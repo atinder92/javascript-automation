@@ -346,11 +346,72 @@ The gulp-useref will combine files which you mentioned in the build tag. You hav
 
 });
 
+***
+
+### Minification
+
+Minification is an important task, which allows us to minify our javascript or css files. This can help us in optimising our websites because it reduce file sizes.
+
+#### Minify css files using gulp-csso
+
+We can minify css files using gulp-csso plugin. It can removes white spaces, comments, etc from our css files.
+
+Install gulp-csso using following command:
+
+`npm install gulp-csso --save-dev`
+
+Include gulp-csso into your javascript file as follows:
+
+`var csso = require('gulp-csso');`
+
+A simple example has been shown below:
+
+```
+gulp.task('minify-css',function(){
 
 
+return gulp.src('./my-source-code/one.css')
+       .pipe(csso())
+       .pipe(gulp.dest('./build/')); 
 
 
+});
 
+```
+
+Run the above task using the command:
+
+`gulp minify-css`
+
+#### Minify js files using gulp-uglify
+
+For minifying js files, we can use gulp-uglify plugin. 
+
+You can install gulp-uglify plugin using the following command:
+
+`npm install gulp-uglify --save-dev`
+
+Include gulp-uglify into your javascript as follows:
+
+`var uglify = require('gulp-uglify');`
+
+A simple example of using gulp-uglify has been shown below:
+
+```
+gulp.task('minify-js',function(){
+    
+return gulp.src('./my-source-code/app.js')
+       .pipe(uglify())
+       .pipe(gulp.dest('./build/minified/'));
+
+
+});
+
+```
+
+Run the above task using the command :
+
+`gulp minify-js`
 
 
 

@@ -413,6 +413,39 @@ Run the above task using the command :
 
 `gulp minify-js`
 
+***
+
+### Image Compression
+
+We can easily compress images using gulp-imagemin plugin. It helps us in reducing image size and optimizing our websites.
+
+Install gulp-imagemin using following command:
+
+`npm install gulp-imagemin --save-dev`
+
+Include gulp-imagemin in your javascript file as follows:
+
+`var imagemin = require('gulp-imagemin');`
+
+An example of using gulp-imagemin is shown below:
+
+```
+gulp.task('optimize-images',function(){
+
+    return gulp.src('./my-source-code/img/**/*.*')
+           .pipe(gulpimg({optimizationLevel:5}))
+           .pipe(gulp.dest('./build/img'));
+
+
+});
+
+```
+
+Run the above gulp task using following command:
+
+`gulp optimize-images`
+
+***
 
 
 
